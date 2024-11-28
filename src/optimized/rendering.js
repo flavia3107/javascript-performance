@@ -22,6 +22,7 @@ function createElement(product, prodId, deleteProductFn) {
 }
 
 export function renderProducts(products, deleteProductFn) {
+  console.log('Prod', productListEl)
   productListEl.innerHTML = '';
   products.forEach(product => {
     const newListEl = createElement(product, product.id, deleteProductFn);
