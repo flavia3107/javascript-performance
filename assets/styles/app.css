@@ -10,19 +10,51 @@ body {
   margin: 0;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4rem;
+.logo {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #b6004c;
+  text-decoration: none;
+  padding: 1rem 0 0 1rem;
 }
 
-label, input {
+.logo > img {
+  height: 35px;
+}
+
+.logo-txt {
+  padding-left: 7px;
+  display: flex;
+  flex-direction: column;
+  color: #272727;
+  align-items: flex-start;
+}
+
+.logo-img {
+  width: 2rem;
+  margin-right: 3px;
+}
+
+.logo-txt h1,
+.logo-txt span {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  letter-spacing: 4px;
+}
+
+.logo-txt h1 {
+  font-weight: bolder;
+  font-size: 1.1rem;
+  margin-top: 2px;
+  color: #272727;
+}
+
+.logo-txt span {
+  font-weight: lighter;
+  font-size: 0.85rem;
+}
+
+label,
+input {
   display: block;
   width: 100%;
 }
@@ -34,8 +66,9 @@ label {
 input {
   font: inherit;
   padding: 0.15rem 0.25rem;
-  border: 1px solid #ccc;
-  margin: 0.5rem 0;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin: 1rem 0;
 }
 
 input:focus {
@@ -44,21 +77,33 @@ input:focus {
 
 button {
   font: inherit;
-  background: #4e0097;
-  color: white;
-  border: 1px solid #4e0097;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  padding: 0.5rem 2rem;
 }
 
-button:focus, input:focus {
+form button {
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #272727;
+}
+
+button:focus,
+input:focus {
   outline: none;
 }
 
 button:hover,
 button:active {
-  background: #6e0dc9;
-  border-color: #6e0dc9;
+  /* background: #926eb4;
+  border-color: #6e0dc9; */
+}
+
+button:has(i) {
+  position: absolute;
+  right: 0;
+  padding: 0 1rem;
 }
 
 header h1 {
@@ -67,28 +112,53 @@ header h1 {
   margin: 0;
 }
 
-#shop-controls {
-  margin: 5rem auto 0 auto;
-  width: 90%;
-  max-width: 40rem;
-}
-
 #product-list {
   list-style: none;
   margin: 2rem auto;
-  width: 90%;
-  max-width: 40rem;
+  width: 100%;
+  max-width: 80rem;
   padding: 0;
 }
 
-#product-list li {
+#product-list li,
+.form-container {
   margin: 1rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 6px;
   padding: 1rem;
+  position: relative;
 }
 
-#product-list h2 {
-  font-size: 1.5rem;
-  margin: 0 0 0.5rem 0;
+#product-list h3 {
+  /* font-size: 1.5rem; */
+  margin: 0;
+  color: #424242;
+}
+
+.subtitle {
+  font-size: 0.7rem;
+  color: #8d8d8d;
+  display: inline-block;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 2rem;
+}
+
+main {
+  display: flex;
+}
+
+.price_container {
+  color: #676767;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+}
+
+.price {
+  color: #8d8d8d;
 }
