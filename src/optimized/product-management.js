@@ -1,8 +1,9 @@
 import { updateProducts } from './rendering';
-import { products } from './products';
 
 const titleEl = document.getElementById('title');
 const priceEl = document.getElementById('price');
+
+export const products = [];
 
 export function deleteProduct(prodId) {
   const deletedProductIndex = products.findIndex(prod => prod.id === prodId);

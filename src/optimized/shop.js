@@ -1,5 +1,4 @@
-import { products } from './products';
-import { renderProducts } from './rendering';
+import { addFormListItem } from './rendering';
 
 function addProduct(event) {
   event.preventDefault();
@@ -15,11 +14,10 @@ function deleteProduct(productId) {
 }
 
 function initProducts() {
-  renderProducts(products, deleteProduct);
+  addFormListItem();
 }
-
-const addProductForm = document.getElementById('new-product');
 
 initProducts();
 
+const addProductForm = document.getElementById('new-product');
 addProductForm.addEventListener('submit', addProduct);

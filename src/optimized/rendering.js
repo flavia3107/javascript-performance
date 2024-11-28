@@ -21,32 +21,30 @@ function createElement(product, prodId, deleteProductFn) {
   return newListEl;
 }
 
-export function renderProducts(products, deleteProductFn) {
-  console.log('Prod', productListEl)
-  productListEl.innerHTML = '';
-  products.forEach(product => {
-    const newListEl = createElement(product, product.id, deleteProductFn);
-    productListEl.appendChild(newListEl);
-  });
-  // const startTime = performance.now();
-  // for (let i = 0; i < products.length; i++) {
-  //   const newListEl = createElement(
-  //     products[i],
-  //     products[i].id,
-  //     deleteProductFn
-  //   );
-  //   productListEl.appendChild(newListEl);
-  // }
-  // const endTime = performance.now();
-}
-
 export function updateProducts(product, prodId, deleteProductFn, isAdding) {
   if (isAdding) {
     const newProductEl = createElement(product, prodId, deleteProductFn);
-    productListEl.insertAdjacentElement('afterbegin', newProductEl);
+    productListEl.insertAdjacentElement('beforeend', newProductEl);
   } else {
     const productEl = document.getElementById(prodId);
     productEl.remove();
-    // productEl.parentElement.removeChild(productEl);
   }
+}
+
+export function addFormListItem() {
+  const newListEl = document.createElement('li');
+  newListEl.innerHTML = `
+  <form id="new-product">
+    <div class="form-control">
+      <label for="title">Title</label>
+      <input type="text" id="title" />
+    </div>
+    <div class="form-control">
+      <label for="price">Price</label>
+      <input type="number" min="0" step="0.01" id="price" />
+    </div>
+    <button type="submit">ADD PRODUCT</button>
+  </form>
+  `;
+  productListEl.appendChild(newListEl);
 }
