@@ -4,7 +4,7 @@ function createElement(product, prodId, deleteProductFn) {
   const newListEl = document.createElement('li');
   newListEl.innerHTML = `
     <span class="subtitle">Product</span>
-    <h3>${product.title}</h3>
+    <h3 class="product-title">${product.title}</h3>
     <p class="price_container">Price: <span class="price">$${parseFloat(product.price).toFixed(2)}</span></p>
   `;
   const prodDeleteButtonEl = document.createElement('button');
